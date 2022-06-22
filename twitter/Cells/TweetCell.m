@@ -26,7 +26,6 @@
 - (void)setTweet:(Tweet *)tweet {
     _tweet = tweet;
     
-    //TODO: set image
     self.timelineAuthor.text = self.tweet.user.name;
     self.timelineUsername.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
     self.timelineDate.text = self.tweet.createdAtString;
