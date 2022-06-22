@@ -32,9 +32,11 @@
     self.timelineTweetText.text = self.tweet.text;
     [self.timelineTweetText sizeToFit];
     //TODO: set reply count
-    self.timelineRetweetButton.titleLabel.text = [@(self.tweet.retweetCount) stringValue];
-    self.timelineLikeButton.titleLabel.text = [@(self.tweet.favoriteCount) stringValue];
-    
+   
+    [self.timelineRetweetButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.retweetCount] forState:UIControlStateNormal];
+
+    [self.timelineLikeButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.favoriteCount] forState:UIControlStateNormal];
+
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     if (url != nil) {
