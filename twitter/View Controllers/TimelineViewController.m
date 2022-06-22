@@ -15,6 +15,7 @@
 @interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl; //pull down and refresh the page
 
 @end
 
@@ -27,7 +28,16 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    
     // Get timeline
+    [self fetchTimeline];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+}
+
+- (void) fetchTimeline {
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             NSLog(@"😎😎😎 Successfully loaded home timeline");
@@ -39,6 +49,8 @@
             }
             
             [self.tableView reloadData];
+            //stop the pull down refresher
+            [self.refreshControl endRefreshing];
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
