@@ -28,7 +28,7 @@
     //set up TableView
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     // Get timeline
     [self fetchTimeline];
@@ -79,7 +79,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier: @"TweetCell"];
     cell.tweet = self.arrayOfTweets[indexPath.row];
-//    [cell.timelineRetweetButton setTitle:@"Test" forState:UIControlStateNormal];
     return cell;
 }
 

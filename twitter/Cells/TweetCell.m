@@ -9,6 +9,7 @@
 #import "TweetCell.h"
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
+#import "APIManager.h"
 
 @implementation TweetCell
 
@@ -32,10 +33,17 @@
     self.timelineTweetText.text = self.tweet.text;
     [self.timelineTweetText sizeToFit];
     //TODO: set reply count
-   
-    [self.timelineRetweetButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.retweetCount] forState:UIControlStateNormal];
-
-    [self.timelineLikeButton setTitle:[NSString stringWithFormat:@"%d", self.tweet.favoriteCount] forState:UIControlStateNormal];
+    
+    self.timelineRetweetCount.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    self.timelineLikeCount.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    
+    if(self.tweet.retweeted == YES) {
+        [self.timelineRetweetButton setImage:[UIImage imageNamed:@"retweet-icon-green.png"] forState:UIControlStateNormal];
+    }
+    
+    if(self.tweet.favorited == YES) {
+        [self.timelineLikeButton setImage:[UIImage imageNamed:@"favor-icon-red.png"] forState:UIControlStateNormal];
+    }
 
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
@@ -46,6 +54,82 @@
         self.timelineProfileImage.layer.borderWidth = 0;
     }
     
+}
+
+- (IBAction)didTapRetweet:(id)sender {
+    if(self.tweet.retweeted != YES) { //tweet
+        self.tweet.retweeted = YES;
+        self.tweet.retweetCount += 1;
+        
+        [self.timelineRetweetButton setImage:[UIImage imageNamed:@"retweet-icon-green.png"] forState:UIControlStateNormal];
+        [self refreshData];
+        
+        [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+             } else{
+                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+             }
+         }];
+    } else { //unretweet
+        self.tweet.retweeted = NO;
+        self.tweet.retweetCount -= 1;
+        
+        [self.timelineRetweetButton setImage:[UIImage imageNamed:@"retweet-icon.png"] forState:UIControlStateNormal];
+        [self refreshData];
+        
+        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+             } else{
+                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+             }
+         }];
+    }
+
+}
+
+- (IBAction)didTapFavorite:(id)sender {
+    if(self.tweet.favorited != YES) { //favorite
+        self.tweet.favorited = YES;
+        self.tweet.favoriteCount += 1;
+        
+        // Update cell UI
+        [self.timelineLikeButton setImage:[UIImage imageNamed:@"favor-icon-red.png"] forState:UIControlStateNormal];
+        [self refreshData];
+        
+        // Send a POST request to the POST favorites/create endpoint
+        [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+             } else{
+                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+             }
+         }];
+    } else { //unfavorite
+        self.tweet.favorited = NO;
+        self.tweet.favoriteCount -= 1;
+        
+        // Update cell UI
+        [self.timelineLikeButton setImage:[UIImage imageNamed:@"favor-icon.png"] forState:UIControlStateNormal];
+        [self refreshData];
+        
+        //retweet-icon-green.png
+        
+        // Send a POST request to the POST favorites/create endpoint
+        [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+             } else{
+                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+             }
+         }];
+    }
+}
+
+- (void) refreshData {
+    self.timelineRetweetCount.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    self.timelineLikeCount.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
 }
 
 @end
