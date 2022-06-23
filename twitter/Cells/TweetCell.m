@@ -132,4 +132,6 @@
     self.timelineLikeCount.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
 }
 
+#pragma mark - Navigation
+
 @end

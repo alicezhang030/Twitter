@@ -11,7 +11,9 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "TweetCell.h"
+#import "Tweet.h"
 #import "ComposeViewController.h"
+#import "DetailsViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -95,8 +97,17 @@
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-     UINavigationController *navigationController = [segue destinationViewController];
-     ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-     composeController.delegate = self;
+     if([segue.identifier isEqualToString: @"TweetTapSegue"]) {
+         NSIndexPath *myIndexPath = [self.tableView indexPathForCell: (TweetCell*) sender];
+         Tweet *dataToPass = self.arrayOfTweets[myIndexPath.row];
+         DetailsViewController *detailVC = [segue destinationViewController];
+         detailVC.detailTweet = dataToPass;
+     }
+     
+     if([segue.identifier isEqualToString: @"ComposeSegue"]) {
+         UINavigationController *navigationController = [segue destinationViewController];
+         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+         composeController.delegate = self;
+     }
  }
 @end
