@@ -39,10 +39,14 @@
     
     if(self.tweet.retweeted == YES) {
         [self.timelineRetweetButton setImage:[UIImage imageNamed:@"retweet-icon-green.png"] forState:UIControlStateNormal];
+    } else {
+        [self.timelineRetweetButton setImage:[UIImage imageNamed:@"retweet-icon.png"] forState:UIControlStateNormal];
     }
     
     if(self.tweet.favorited == YES) {
         [self.timelineLikeButton setImage:[UIImage imageNamed:@"favor-icon-red.png"] forState:UIControlStateNormal];
+    } else {
+        [self.timelineLikeButton setImage:[UIImage imageNamed:@"favor-icon.png"] forState:UIControlStateNormal];
     }
 
     NSString *URLString = tweet.user.profilePicture;
@@ -82,7 +86,7 @@
              if(error){
                   NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
              } else{
-                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+                 NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
              }
          }];
     }
@@ -121,7 +125,7 @@
              if(error){
                   NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
              } else{
-                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+                 NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
              }
          }];
     }

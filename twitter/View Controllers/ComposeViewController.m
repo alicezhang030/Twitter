@@ -10,8 +10,10 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *composeText;
+@property (weak, nonatomic) IBOutlet UILabel *characterCount;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -19,7 +21,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.textView.delegate = self;
     // Do any additional setup after loading the view.
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    NSUInteger length = [textView.text length];
+    self.characterCount.text = [NSString stringWithFormat:@"%u", length];
+    if(length > 280) {
+        textView.layer.borderColor = [[UIColor redColor] CGColor];
+        textView.layer.borderWidth = 0.5;
+    }
 }
 
 //closes the compose screen
