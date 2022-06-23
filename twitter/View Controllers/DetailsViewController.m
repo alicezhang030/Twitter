@@ -45,14 +45,18 @@
     
     if(self.detailTweet.retweeted == YES) {
         [self.detailRetweetButton setImage:[UIImage imageNamed:@"retweet-icon-green.png"] forState:UIControlStateNormal];
+    } else {
+        [self.detailRetweetButton setImage:[UIImage imageNamed:@"retweet-icon.png"] forState:UIControlStateNormal];
     }
     
     if(self.detailTweet.favorited == YES) {
         [self.detailLikeButton setImage:[UIImage imageNamed:@"favor-icon-red.png"] forState:UIControlStateNormal];
+    } else {
+        [self.detailLikeButton setImage:[UIImage imageNamed:@"favor-icon.png"] forState:UIControlStateNormal];
     }
     
-    self.detailRetweetCount.text = [[NSString stringWithFormat:@"%d", self.detailTweet.retweetCount] stringByAppendingString:@" Retweets"];
-    self.detailLikeCount.text = [[NSString stringWithFormat:@"%d", self.detailTweet.favoriteCount] stringByAppendingString:@" Likes"];
+    self.detailRetweetCount.text = [NSString stringWithFormat:@"%d", self.detailTweet.retweetCount];
+    self.detailLikeCount.text = [NSString stringWithFormat:@"%d", self.detailTweet.favoriteCount];
 }
 
 - (IBAction)didTapDetailsRetweet:(id)sender {
@@ -81,7 +85,7 @@
              if(error){
                   NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
              } else{
-                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+                 NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
              }
          }];
     }
@@ -119,7 +123,7 @@
              if(error){
                   NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
              } else{
-                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+                 NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
              }
          }];
     }
