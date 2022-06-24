@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface User : NSObject
 
-@property (nonatomic, strong) NSString *user_id;
+@property (nonatomic, strong) NSNumber *user_id;
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;

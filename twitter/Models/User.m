@@ -14,9 +14,7 @@
     self = [super init];
 
     if (self) {
-        NSNumber *user_id = dictionary[@"id"];
-        int user_id_int =  [user_id intValue];
-        self.user_id = [NSString stringWithFormat:@"%d", user_id_int];
+        self.user_id = dictionary[@"id"];
         
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];
