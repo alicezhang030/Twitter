@@ -478,9 +478,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCC-40-fLE">
-                                <rect key="frame" x="369" y="262" width="28" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCC-40-fLE">
+                                <rect key="frame" x="387.5" y="262" width="9.5" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="DdJ-rW-Bt2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -489,8 +491,13 @@
                         <viewLayoutGuide key="safeArea" id="hz8-z2-asW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hz8-z2-asW" firstAttribute="trailing" secondItem="WCC-40-fLE" secondAttribute="trailing" constant="17" id="6yU-eJ-IJn"/>
                             <constraint firstItem="p7U-YO-AVg" firstAttribute="trailing" secondItem="hz8-z2-asW" secondAttribute="trailing" id="9bp-DK-A5L"/>
                             <constraint firstItem="p7U-YO-AVg" firstAttribute="top" secondItem="hz8-z2-asW" secondAttribute="top" id="CBV-Gn-cj2"/>
+                            <constraint firstItem="p7U-YO-AVg" firstAttribute="leading" secondItem="hz8-z2-asW" secondAttribute="leading" id="DJy-UZ-6MB"/>
+                            <constraint firstItem="p7U-YO-AVg" firstAttribute="trailing" secondItem="hz8-z2-asW" secondAttribute="trailing" id="GHk-Ur-RUR"/>
+                            <constraint firstItem="p7U-YO-AVg" firstAttribute="top" secondItem="hz8-z2-asW" secondAttribute="top" id="VpS-dh-7dX"/>
+                            <constraint firstItem="WCC-40-fLE" firstAttribute="top" secondItem="p7U-YO-AVg" secondAttribute="bottom" constant="8" symbolic="YES" id="jy6-fA-hxB"/>
                             <constraint firstItem="p7U-YO-AVg" firstAttribute="leading" secondItem="hz8-z2-asW" secondAttribute="leading" id="tac-qp-DLO"/>
                         </constraints>
                     </view>
