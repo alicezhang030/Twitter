@@ -39,10 +39,6 @@ The following **stretch** features are implemented:
 - [ ] Switch between **timeline**, **mentions**, or **profile view** through a tab bar (**3 points**)
 - [x] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
 
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
-
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. Indicate that a post is a retweet on a user's profile page
@@ -52,15 +48,18 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [Kap](https://getkap.co/).
+Login:
+![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/login.gif)
+Compose tweet (+ optional feature of character count:)
+![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/compose.gif)
+All other required features:
+![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/all%20but%20compose.gif)
 
 ## Notes
 
 Describe any challenges encountered while building the app.
 
-Autolayout was very challenging to work with. The concept sounds simple, but 
+Autolayout was very challenging to work with. The concept sounds simple, but it became really hard to make sure everything is aligned on all devices.
 
 ## Credits
 
