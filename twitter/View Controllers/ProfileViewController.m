@@ -45,11 +45,9 @@
     //TODO: fix cut off with tag line
     self.tagLine.text = self.user.tagline;
     
-    self.followingCount.text = [self.user.followingCount stringByAppendingString:@" Following"];
-    
-    self.followersCount.text = [self.user.followersCount stringByAppendingString:@" Followers"];
-    
-    self.tweetCount.text = [self.user.tweetCount stringByAppendingString:@" Tweets"];
+    self.followingCount.text = [NSString stringWithFormat: @"%d Following", self.user.followingCount];
+    self.followersCount.text = [NSString stringWithFormat: @"%d Followers", self.user.followersCount];
+    self.tweetCount.text = [NSString stringWithFormat: @"%d Tweets", self.user.tweetCount];
             
     NSString *URLString = self.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
@@ -71,6 +69,7 @@
 - (void) fetchTimeline {
     [[APIManager shared] getUserTimelineWithCompletion:self.user.user_id completion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
+            NSLog(@"%@", self.user.user_id);
             NSLog(@"😎😎😎 Successfully loaded user timeline");
             self.arrayOfUserTweets = (NSMutableArray *)tweets;
             [self.tableView reloadData];

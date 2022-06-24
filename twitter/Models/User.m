@@ -26,17 +26,13 @@
         self.tagline = dictionary[@"description"];
         
         NSNumber *followingCountNum = dictionary[@"friends_count"];
-        int followingCountInt =  [followingCountNum intValue];
-        self.followingCount = [NSString stringWithFormat:@"%d", followingCountInt];
+        self.followingCount =  [followingCountNum intValue];
         
         NSNumber *followersCountNum = dictionary[@"followers_count"];
-        int followersCountInt =  [followersCountNum intValue];
-        self.followersCount = [NSString stringWithFormat:@"%d", followersCountInt];
+        self.followersCount =  [followersCountNum intValue];
         
         NSNumber *tweetCountNum = dictionary[@"statuses_count"];
-        int tweetCountInt = [tweetCountNum intValue];
-        self.tweetCount = [NSString stringWithFormat:@"%d", tweetCountInt];
-        
+        self.tweetCount = [tweetCountNum intValue];
     }
     
     return self;

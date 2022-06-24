@@ -20,9 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *backdropPicture;
 @property (nonatomic, strong) NSString *tagline;
-@property (nonatomic, strong) NSString *followingCount;
-@property (nonatomic, strong) NSString *followersCount;
-@property (nonatomic, strong) NSString *tweetCount;
+@property (nonatomic, assign) int followingCount;
+@property (nonatomic, assign) int followersCount;
+@property (nonatomic, assign) int tweetCount;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
