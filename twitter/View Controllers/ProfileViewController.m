@@ -12,6 +12,8 @@
 #import "TweetCell.h"
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) NSMutableArray *arrayOfUserTweets;
+
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UIImageView *backdropImage;
 @property (weak, nonatomic) IBOutlet UILabel *userRealName;
@@ -22,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *tweetCount;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) UIRefreshControl *refreshControl; //pull down and refresh the page
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *blurView;
 
 @end
 
@@ -63,18 +68,42 @@
     if(url != nil) {
         [self.backdropImage setImageWithURL:urlBackdrop];
     }
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
+- (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    //self.blurView.alpha = 1;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.blurView.alpha = 1;
+        self.backdropImage.transform = CGAffineTransformMakeScale(1.4, 1.4);
+        self.blurView.transform = CGAffineTransformMakeScale(1.4, 1.4);
+    }];
+}
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.blurView.alpha = 0;
+        self.backdropImage.transform = CGAffineTransformIdentity;
+        self.blurView.transform = CGAffineTransformIdentity;
+    }];
+}
 
 - (void) fetchTimeline {
-    [[APIManager shared] getUserTimelineWithCompletion:self.user.user_id completion:^(NSArray *tweets, NSError *error) {
+    [[APIManager shared] getUserTimelineWithCompletion:self.user.userId completion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-            NSLog(@"%@", self.user.user_id);
+            NSLog(@"%@", self.user.userId);
             NSLog(@"😎😎😎 Successfully loaded user timeline");
             self.arrayOfUserTweets = (NSMutableArray *)tweets;
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+            self.blurView.alpha = 0;
         } else {
             NSLog(@"😫😫😫 Error getting user timeline: %@", error.localizedDescription);
+            [self.refreshControl endRefreshing];
+            self.blurView.alpha = 0;
         }
     }];
 }

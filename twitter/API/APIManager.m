@@ -66,8 +66,8 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
-- (void)getUserTimelineWithCompletion:(NSNumber *)user_id completion:(void(^)(NSArray *tweets, NSError *error))completion {
-    NSDictionary *parameters = @{@"user_id": user_id};
+- (void)getUserTimelineWithCompletion:(NSNumber *)userId completion:(void(^)(NSArray *tweets, NSError *error))completion {
+    NSDictionary *parameters = @{@"user_id": userId};
     [self GET:@"1.1/statuses/user_timeline.json"
        parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *  _Nullable tweetDictionaries){
            // Success

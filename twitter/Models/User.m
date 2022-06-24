@@ -14,7 +14,7 @@
     self = [super init];
 
     if (self) {
-        self.user_id = dictionary[@"id"];
+        self.userId = dictionary[@"id"];
         
         self.name = dictionary[@"name"];
         self.screenName = dictionary[@"screen_name"];

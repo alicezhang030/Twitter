@@ -114,7 +114,6 @@
 			children = (
 				53B0A8D528627F0F00CD0B12 /* Cells */,
 				6AD2790320BCC01B0085BC29 /* View Controllers */,
-				6AD278FF20BCBF280085BC29 /* Views */,
 				6AD278F720BCB6900085BC29 /* API */,
 				6AD278F820BCBC140085BC29 /* Models */,
 				6AD278D820BC4B950085BC29 /* AppDelegate.h */,
@@ -148,13 +147,6 @@
 				53B0A8CC28613BB200CD0B12 /* Tweet.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		6AD278FF20BCBF280085BC29 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		6AD2790320BCC01B0085BC29 /* View Controllers */ = {

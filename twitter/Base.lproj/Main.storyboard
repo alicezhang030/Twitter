@@ -165,6 +165,9 @@
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" scrollEnabled="NO" editable="NO" text="Tweet" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7p-72-IOw">
                                                     <rect key="frame" x="69" y="36" width="315" height="37"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                    </accessibility>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -410,6 +413,12 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2333 Tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaK-mb-ynk">
+                                            <rect key="frame" x="21" y="311" width="383" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@janedoe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-7O-e8e">
                                             <rect key="frame" x="20" y="231" width="64" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -429,6 +438,15 @@
                                             <rect key="frame" x="0.0" y="-7" width="414" height="157"/>
                                             <color key="backgroundColor" red="0.39607840779999998" green="0.46666663889999999" blue="0.52549022440000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </imageView>
+                                        <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Uk-ge-yRU">
+                                            <rect key="frame" x="0.0" y="-7" width="414" height="157"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5kv-sc-NN0">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="157"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <blurEffect style="regular"/>
+                                        </visualEffectView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EKM-rz-9jf">
                                             <rect key="frame" x="20" y="107" width="80" height="80"/>
                                             <constraints>
@@ -436,12 +454,6 @@
                                                 <constraint firstAttribute="height" constant="80" id="o7f-RV-WpQ"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2333 Tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaK-mb-ynk">
-                                            <rect key="frame" x="21" y="304" width="383" height="16"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                     <constraints>
@@ -464,7 +476,7 @@
                                         <constraint firstItem="yZf-25-SYW" firstAttribute="leading" secondItem="kRe-ix-Aki" secondAttribute="leading" constant="20" symbolic="YES" id="fZM-EH-e0m"/>
                                         <constraint firstItem="FMN-7O-e8e" firstAttribute="leading" secondItem="kRe-ix-Aki" secondAttribute="leading" constant="20" symbolic="YES" id="gWA-sZ-v3S"/>
                                         <constraint firstItem="iXQ-Vl-OJ4" firstAttribute="centerY" secondItem="tjO-ed-cVN" secondAttribute="centerY" id="l1F-WY-aL4"/>
-                                        <constraint firstItem="RaK-mb-ynk" firstAttribute="top" secondItem="tjO-ed-cVN" secondAttribute="bottom" constant="3" id="mmx-Ux-Xxx"/>
+                                        <constraint firstItem="RaK-mb-ynk" firstAttribute="top" secondItem="tjO-ed-cVN" secondAttribute="bottom" constant="10" id="mmx-Ux-Xxx"/>
                                         <constraint firstItem="AxI-wQ-azT" firstAttribute="top" secondItem="kRe-ix-Aki" secondAttribute="top" constant="-7" id="oCV-Yb-Eje"/>
                                         <constraint firstItem="iXQ-Vl-OJ4" firstAttribute="leading" secondItem="tjO-ed-cVN" secondAttribute="trailing" constant="14" id="q5h-li-ra7"/>
                                         <constraint firstItem="tjO-ed-cVN" firstAttribute="leading" secondItem="kRe-ix-Aki" secondAttribute="leading" constant="20" symbolic="YES" id="u3U-Wf-282"/>
@@ -629,6 +641,7 @@
                     <navigationItem key="navigationItem" id="DTK-83-sbe"/>
                     <connections>
                         <outlet property="backdropImage" destination="AxI-wQ-azT" id="Rnq-pA-D15"/>
+                        <outlet property="blurView" destination="5Uk-ge-yRU" id="pzc-uJ-4pQ"/>
                         <outlet property="followersCount" destination="iXQ-Vl-OJ4" id="30I-I0-A0h"/>
                         <outlet property="followingCount" destination="tjO-ed-cVN" id="ajZ-Nu-ryO"/>
                         <outlet property="profileImage" destination="EKM-rz-9jf" id="PLP-fV-p2s"/>

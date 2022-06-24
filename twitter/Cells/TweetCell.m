@@ -18,6 +18,10 @@
     UITapGestureRecognizer *profileTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapUserProfile:)];
     [self.timelineProfileImage addGestureRecognizer:profileTapGestureRecognizer];
     [self.timelineProfileImage setUserInteractionEnabled:YES];
+    
+    self.timelineTweetText.userInteractionEnabled = NO;
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
