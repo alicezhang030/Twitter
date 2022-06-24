@@ -6,16 +6,17 @@
 //  Copyright © 2018 Emerson Malca. All rights reserved.
 //
 
-#import "TimelineViewController.h"
 #import "APIManager.h"
 #import "AppDelegate.h"
-#import "LoginViewController.h"
 #import "TweetCell.h"
 #import "Tweet.h"
+#import "TimelineViewController.h"
+#import "LoginViewController.h"
 #import "ComposeViewController.h"
 #import "DetailsViewController.h"
+#import "ProfileViewController.h"
 
-@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, TweetCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl; //pull down and refresh the page
@@ -81,6 +82,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier: @"TweetCell"];
     cell.tweet = self.arrayOfTweets[indexPath.row];
+    cell.delegate = self;
     return cell;
 }
 
@@ -91,6 +93,10 @@
 - (void)didTweet:(Tweet *)tweet {
     [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
+}
+
+- (void)tweetCell:(TweetCell *) tweetCell didTap: (User *)user {
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
 }
 
  #pragma mark - Navigation
@@ -108,6 +114,11 @@
          UINavigationController *navigationController = [segue destinationViewController];
          ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
          composeController.delegate = self;
+     }
+     
+     if([segue.identifier isEqualToString:@"profileSegue"]) {
+         ProfileViewController *profileVC = [segue destinationViewController];
+         profileVC.user = sender;
      }
  }
 @end

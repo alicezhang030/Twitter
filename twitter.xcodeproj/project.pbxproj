@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		53A70B6028639B3B00A628B2 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A70B5F28639B3B00A628B2 /* ComposeViewController.m */; };
 		53A9DF3F2864E08500B51B23 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A9DF3E2864E08500B51B23 /* DetailsViewController.m */; };
+		53A9DF422865288700B51B23 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53A9DF412865288700B51B23 /* ProfileViewController.m */; };
 		53B0A8C72861360800CD0B12 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53B0A8C62861360800CD0B12 /* Keys.plist */; };
 		53B0A8CA28613ACF00CD0B12 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B0A8C928613ACF00CD0B12 /* User.m */; };
 		53B0A8CD28613BB200CD0B12 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B0A8CC28613BB200CD0B12 /* Tweet.m */; };
@@ -32,6 +33,8 @@
 		53A70B5F28639B3B00A628B2 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		53A9DF3D2864E08500B51B23 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		53A9DF3E2864E08500B51B23 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		53A9DF402865288700B51B23 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		53A9DF412865288700B51B23 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		53B0A8C62861360800CD0B12 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		53B0A8C828613ACF00CD0B12 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		53B0A8C928613ACF00CD0B12 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				53A70B5F28639B3B00A628B2 /* ComposeViewController.m */,
 				53A9DF3D2864E08500B51B23 /* DetailsViewController.h */,
 				53A9DF3E2864E08500B51B23 /* DetailsViewController.m */,
+				53A9DF402865288700B51B23 /* ProfileViewController.h */,
+				53A9DF412865288700B51B23 /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
+				53A9DF422865288700B51B23 /* ProfileViewController.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
