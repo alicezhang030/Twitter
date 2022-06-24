@@ -26,8 +26,6 @@
 
 - (void) didTapUserProfile:(UITapGestureRecognizer *)sender{
     [self.delegate tweetCell:self didTap:self.tweet.user];
-
-    
 }
 
 - (void)setTweet:(Tweet *)tweet {
@@ -36,9 +34,8 @@
     self.timelineAuthor.text = self.tweet.user.name;
     self.timelineUsername.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
     self.timelineDate.text = self.tweet.createdAtString;
-    self.timelineTweetText.text = self.tweet.text;
+    [self.timelineTweetText setText:self.tweet.text];
     [self.timelineTweetText sizeToFit];
-    //TODO: set reply count
     
     self.timelineRetweetCount.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     self.timelineLikeCount.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];

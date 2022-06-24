@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol TweetCellDelegate;
 
-@interface TweetCell : UITableViewCell
+@interface TweetCell : UITableViewCell <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *timelineProfileImage;
 @property (weak, nonatomic) IBOutlet UILabel *timelineAuthor;
 @property (weak, nonatomic) IBOutlet UILabel *timelineUsername;
 @property (weak, nonatomic) IBOutlet UILabel *timelineDate;
-@property (weak, nonatomic) IBOutlet UILabel *timelineTweetText;
+@property (weak, nonatomic) IBOutlet UITextView *timelineTweetText;
 @property (weak, nonatomic) IBOutlet UIButton *timelineLikeButton;
 @property (weak, nonatomic) IBOutlet UIButton *timelineRetweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *timelineReplyButton;

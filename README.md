@@ -45,8 +45,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Implementing hashtag functionality
+2. Convert the numbers (ex. 1045630 followers) to a more readable format (ex. 1M followers)
 
 ## Video Walkthrough
 
@@ -60,15 +60,18 @@ GIF created with [Kap](https://getkap.co/).
 
 Describe any challenges encountered while building the app.
 
+Autolayout was very challenging to work with. The concept sounds simple, but 
+
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [DateTools](https://github.com/MatthewYork/DateTools) - date formatting library
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2022 Jinyang Zhang
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
