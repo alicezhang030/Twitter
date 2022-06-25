@@ -575,7 +575,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="01/01/01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vef-Pr-2p9">
-                                                    <rect key="frame" x="300" y="11" width="50" height="16"/>
+                                                    <rect key="frame" x="324" y="11" width="50" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="3UR-CO-WtC"/>
                                                     </constraints>
@@ -611,7 +611,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="vef-Pr-2p9" secondAttribute="trailing" constant="64" id="c2I-Ti-JRD"/>
+                                            <constraint firstAttribute="trailing" secondItem="vef-Pr-2p9" secondAttribute="trailing" constant="40" id="c2I-Ti-JRD"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="timelineAuthor" destination="zxd-eK-YdV" id="o87-sI-yUW"/>

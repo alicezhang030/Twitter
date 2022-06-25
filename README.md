@@ -48,9 +48,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-Login:
+Login, app icon, launch screeen:
 ![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/login.gif)
-Compose tweet (+ optional feature of character count:)
+Compose tweet:
 ![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/compose.gif)
 All other required features:
 ![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/all%20but%20compose.gif)
