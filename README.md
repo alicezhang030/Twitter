@@ -54,6 +54,15 @@ Compose tweet:
 ![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/compose.gif)
 All other required features:
 ![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/all%20but%20compose.gif)
+Unlike and unretweet:
+![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/unlike_unretweet.gif)
+Character count + warning:
+![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/char_count.gif)
+Infinite scroll:
+![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/infin_scroll.gif)
+Profile page + pull down:
+![](https://github.com/alicezhang030/Twitter/blob/main/Showcase/profile_pull_down.gif)
+
 
 ## Notes
 
